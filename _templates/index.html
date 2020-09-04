@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header class="header">
+    <div class="header__text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary--main">Perfect Home</span>
+            <span class="heading-primary--sub">Scopri il meglio per la tua casa</span>
+        </h1>
+        <p class="paragraph header__paragraph">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni soluta, recusandae odio error dicta similique blanditiis quos illo cum nesciunt
+        </p>
+        <a href="#section-article" class="btn btn--white btn--animated u-margin-top-medium ">Scopri i nostri prodotti</a>
+    </div>
+</header>
+{% endblock header %}
+
+{% block content %}
+    <section class="section-article" id="section-article">
+        <div class="section-article__title">
+            <h2 class="heading-secondary">
+                Vedi qui l'elenco dei nostri prodotti
+            </h2>
+            <p class="paragraph section-article__paragraph">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni soluta, recusandae odio error dicta similique blanditiis quos illo cum nesciunt, quae praesentium eius ipsum ullam repudiandae illum quam minima porro.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam rerum quam eaque debitis expedita facere omnis, doloribus velit,
+            </p>
+        </div>
+        <div id="article-list">
+
+        </div>
+        <div class="u-center-text u-margin-top-medium" id="loadItem">
+            <a href="#section-tours" class="btn btn--grey btn--animated">Carica altri prodotti</a>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block js %}
+<script type="module" src="{% static 'js/index.js' %}"></script>
+{% endblock js %}
+    
+

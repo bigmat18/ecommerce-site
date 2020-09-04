@@ -1,0 +1,46 @@
+.header {
+    margin: 5rem auto;
+    height: 85vh;
+    width: 87%;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    border: none;
+
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-grey-light-2, 0.7), 
+        rgba($color-grey-dark, 0.7)), 
+        url('/static/img/photo-2.png');
+    
+
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),  
+    only screen and (min-width: 125em) {
+
+        background-image: linear-gradient(
+            to right bottom, 
+            rgba($color-grey-light-2, 0.7), 
+            rgba($color-grey-dark, 0.7)), 
+            url('/static/img/photo-2.png');
+    }
+    
+    &__text-box{
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    &__paragraph{
+        color: $color-white;
+        font-size: 1.5rem;
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        line-height: 3.3rem;
+        letter-spacing: .4rem;
+    }
+}

@@ -1,0 +1,63 @@
+{% load sass_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="{% sass_src 'scss/main.scss' %}" rel="stylesheet" type="text/css" />
+    <title>E-commerce</title>
+
+</head>
+<body>
+    <nav>
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navbar">
+            <div class="navbar__logo-box">
+                <div class="navbar__logo">
+                    <span class="navbar__logo--main">PerfectHome</span>
+                    <span class="navbar__logo--sub">Mobili ed Arredamenti</span>
+                </div>
+            </div>
+
+            <form action="#" class="search">
+                <input type="text" class="search__input" placeholder="Cerca quello che preferisci">
+                <button class="search__button">
+                    <img src="{% static 'img/icon/search.png' %}" alt="" class="search__icon">
+                </button>
+            </form>
+
+            <ul class="navbar__list">
+                <li class="navbar__item"><a href="/" class="navbar__link">Homepage</a></li>
+                {% if request.user.is_authenticated %}
+                    <li class="navbar__item"><a href="/account/" class="navbar__link">Account</a></li>
+                    <li class="navbar__item"><a href="/" class="navbar__link" id="logout">Logout</a></li>
+                {% else %}
+                    <li class="navbar__item"><a href="/login/" class="navbar__link">Accedi</a></li>
+                    <li class="navbar__item"><a href="/registration/" class="navbar__link">Registrati</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </nav>
+    {% block header %}
+    {% endblock header %}
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+
+    </footer>
+
+    {% block js %}
+    {% endblock js %}
+    
+</body>
+</html>

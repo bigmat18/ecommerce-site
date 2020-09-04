@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <section class="account-section">
+            <div class="row">
+                <div class="col-1-of-2">
+                    <fiugure class="account__picture">
+                        <img src="{% static 'img/profileVoid.png' %}" alt="yout image" class="account__image" id="avatar">
+                        <!-- <figcaption class="account__caption">Cambia foto</figcaption> -->
+                    </fiugure>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="account__info">
+                        <div class="account__title">
+                            <h2 class="heading-secondary" id="title">
+                                Benventuo Matteo Giuntoni
+                            </h2>
+                        </div>
+                        <div class="account__content">
+                            <div class="account__content--group1">
+                                <div class="account__data">
+                                    <p class="account__data--label">Username</p>
+                                    <p class="account__data--content" id="username">Admin123456</p>
+                                </div>
+                                <div class="account__data">
+                                    <p class="account__data--label">Email</p>
+                                    <p class="account__data--content" id="email">admin@admin.com</p>
+                                </div>
+                                <div class="account__data">
+                                    <p class="account__data--label">Carrello</p>
+                                    <p class="account__data--content" id="cartItem">10 oggetti</p>
+                                </div>
+                            </div>
+
+                            <div class="account__content--group2">
+                                <div class="account__data">
+                                    <p class="account__data--label">Nome</p>
+                                    <p class="account__data--content" id="firstName">Matteo</p>
+                                </div>
+                                <div class="account__data">
+                                    <p class="account__data--label">Cognome</p>
+                                    <p class="account__data--content" id="secondName">Giuntoni</p>
+                                </div>
+                                <div class="account__data">
+                                    <p class="account__data--label">Data Join</p>
+                                    <p class="account__data--content" id="dataJoined">10/11/2019</p>
+                                </div>
+                            </div>
+                            <!-- <div class="account__button-group">
+                                <div class="account__button" id="loadItem">
+                                    <a href="#" class="btn btn--grey">Modifica Account</a>
+                                </div>
+                                <div class="account__button" id="loadItem">
+                                    <a href="#" class="btn btn--grey">Cambia Account</a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% if request.user.is_superuser %}
+        <section class="item-maneger-section">
+            <div class="item-maneger__title u-center-text ">
+                <h2 class="heading-secondary">
+                    Vedi qui l'elenco dei nostri prodotti
+                </h2>
+                <p class="paragraph">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni soluta, recusandae odio error dicta similique blanditiis quos illo
+                </p>
+                <hr>
+            </div>
+            <div class="item-maneger__item-list" id="article-list">
+            </div>
+            <div class="u-center-text u-margin-top-medium u-margin-bottom-medium">
+                <button id="loadItem" class="btn btn--grey btn--animated">Carica altri prodotti</button>
+                <a id="newItem" href="#popup" class="btn btn--grey btn--animated u-margin-left-medium">Crea un nuovo oggetto</a>
+            </div>
+        </section>
+
+        <div class="popup" id="popup">
+            <div class="popup__content">
+                <div class="popup__title u-center-text u-margin-top-small u-margin-bottom-medium">
+                    <h2 class="heading-secondary">
+                        Modifica/Crea il prodotto
+                    </h2>
+                </div>
+
+                <form class="form" id="form">
+                    <div class="form__group">
+                        <input type="text" placeholder="Titolo" id="formTitle" class="form__input grey" required>
+                        <label for="formTitle" class="form__label">Titolo</label>
+                    </div>
+    
+                    <div class="form__group">
+                        <input type="text" placeholder="Descrizione" id="formDescription" class="form__input grey" required>
+                        <label for="formDescription" class="form__label">Descrizione</label>
+                    </div>
+    
+                    <div class="form__group">
+                        <input type="number" placeholder="Prezzo" id="formPrice" class="form__input grey" required>
+                        <label for="formPrice" class="form__label">Prezzo</label>
+                    </div>
+    
+                    <div class="form__group">
+                        <input type="number" placeholder="Sconto (non oggligatorio)" id="formDiscount" class="form__input grey">
+                        <label for="formDiscount" class="form__label">Sconto</label>
+                    </div>
+
+                    <div class="form__group">
+                        <input type="file" placeholder="Seleziona immagine" id="imagePicker" name="image" value accept="image/*" class="form__input grey"/>
+                        <label for="formDiscount"  id="formImage" class="form__label"></label>
+                    </div>
+    
+                    <div class="form__group u-center-text u-margin-top-medium">
+                        <button class="btn btn--grey-dark" id="updateButton">Aggiorna/Crea</button>
+                    </div>
+                </form>
+                <a href="#" id="popupClose" class="popup__close">&times;</a>
+            </div>
+        </div>
+        {% endif %}
+    {% else %}
+        <div class="u-center-text u-margin-top-big">
+            <h2 class="heading-secondary">Accedi per visualizzare l'account</h2>
+        </div>
+    {% endif %}
+{% endblock content %}
+
+{% block js %}
+{% if request.user.is_authenticated %}
+<script>
+const DJANGO_URL_PENCIL = "{% static 'img/icon/pencil.png' %}"
+const DJANGO_URL_CROSS = "{% static 'img/icon/cross.png' %}"
+</script>
+<script type="module" src="{% static 'js/account.js' %}"></script>
+{% endif %}
+{% endblock js %}
+

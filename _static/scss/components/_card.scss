@@ -1,0 +1,167 @@
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem;
+
+    &__side {
+        font-size: 2rem;
+        height: 52rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back{
+            transform: rotateY(180deg);
+            background-color: $color-grey-light-2;
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+    }
+
+    // FRONT SIDE STYLING
+    &__picture {
+        background-size: cover;
+        height: 35rem;
+        background-blend-mode: screen;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+        color: $color-black;
+        position: absolute;
+        bottom: 10rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 75%;
+    }
+
+    &__vote {
+        position: absolute;
+        display: inline-block;
+        bottom: 4rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 75%;
+    }
+
+    &__star {
+        display: inline;
+        padding: 0 1rem;
+    }
+
+
+    // BACK SIDE STYLING
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        text-align: center;
+        color: $color-black;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+    }
+
+
+    @media only screen and (max-width: 56.25em),
+            only screen and (hover: none){
+        height: auto;
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    
+        &__side {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+
+            &--front{
+                height: 50rem;
+                background-color: $color-grey-light-2;
+            }
+
+            &--back{
+                height: 30rem;
+                transform: rotateY(0);
+            }
+        }
+    
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        &__heading {
+            bottom: 7rem
+        }
+    
+        &__vote {
+            bottom: 0rem
+        }
+    
+        &__img {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        // BACK SIDE STYLING
+        &__cta {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+        }
+    
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+    
+    
+        &__price-value {
+            font-size: 5rem;
+        }
+    }
+}

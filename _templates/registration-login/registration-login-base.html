@@ -1,0 +1,21 @@
+{% load sass_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="{% sass_src 'scss/main.scss' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <main class="login-registration">
+        {% block content %}
+        {% endblock content %}
+    </main>
+    {% block js %}
+    {% endblock js %}
+</body>
+</html>

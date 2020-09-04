@@ -1,0 +1,22 @@
+body {
+    box-sizing: border-box;
+    padding: 0rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+.section-article {
+    margin: 10rem auto;
+    text-align: center;
+
+    &__paragraph {
+        width: 57%;
+        margin: 2rem auto;
+
+        @include respond(tab-port) {
+            width: 70%;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.search {
+    width: 25%;
+    height: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(phone) {
+        display: none;
+    }
+
+    &__input {
+        width: 90%;
+        height: 100%;
+        border: none;
+        border-radius: 100px;
+        padding-left: 4rem;
+        background-color: $color-grey-light-1;
+
+
+        font-family: inherit;
+        font-size: 1.7rem;
+        color: inherit;
+
+        transition: all .5s;
+
+        &:focus,
+        &:hover {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .2);
+            width: 100%;
+
+            &:after {
+                transform: scaleX(1.4) scaleY(1.6);
+                opacity: 0;
+            }
+        }
+    }
+
+    &__button {
+        border: none;
+        background-color: $color-grey-light-1;
+        transform: translateX(-4rem);
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+    }
+}

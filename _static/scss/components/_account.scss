@@ -1,0 +1,95 @@
+.account {
+    &__picture {
+        float: right;
+        width: 95%;
+        height: 95%;
+        position: relative;
+    }
+
+    &__image {
+        width: 100%;
+        border-radius: 1rem;
+        transition: all .2s;
+        outline-offset: 2rem;
+        backface-visibility: hidden;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            outline: .5rem solid $color-grey-dark-2;
+            filter: blur(3px) brightness(80%);
+        }
+    }
+
+    &__caption {
+        @include absCenter;
+
+        font-size: 4rem;
+        color: transparent;
+        border-radius: 1rem;
+        text-align: center;
+        backface-visibility: hidden;
+        transition: all .2s;
+        padding: 1rem 1.7rem;
+    }
+
+    &__caption:hover + &__image {
+        cursor: pointer;
+        transform: scale(1.05);
+        outline: .5rem solid $color-grey-dark-2;
+        filter: blur(3px) brightness(80%);
+    }
+
+    &__image:hover + &__caption {
+        color: $color-grey-dark-2;
+        background-color: rgba($color-white, .7);
+    }
+
+    &__title {
+
+        .heading-secondary {
+            font-size: 3.4rem;
+        }
+    }
+
+    &__content {
+        margin-top: 5rem;
+
+        &--group1 {
+            display: inline-block;
+        }
+        &--group2 {
+            display: inline-block;
+            margin-left: 10rem;
+        }
+    }
+
+    &__data {
+        margin-bottom: 4rem;
+
+        &--label {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        &--content {
+            padding: 1rem 4rem 1rem 2rem;
+            border-radius: 20px;
+            background-color: $color-grey-light-2;
+            border: 1px $color-grey-light-2 solid;
+            font-size: 2.3rem;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        }
+    }
+
+    &__button {
+        display: inline-block;
+        margin-top: 3rem;
+
+        &:not(:first-child) {
+            margin-left: 5rem;
+        }
+    }
+
+}

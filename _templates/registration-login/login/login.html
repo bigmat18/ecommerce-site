@@ -1,0 +1,42 @@
+{% extends 'registration-login/registration-login-base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section-login-registration">
+    <div class="login-registration__box">
+        {% if request.user.is_authenticated %}
+            <div class="paragrah login-registration__paragrah u-center-text">
+                Hai già effetuato l'accesso torna all'<a href="/" class="login-registration__link--grey">Homepage</a>
+            </div>
+        {% else %}
+            <div class="login-registration__title u-margin-bottom-medium">
+                <h2 class="heading-secondary">
+                    Accedi al tuo account
+                </h2>
+            </div>
+            <form class="form" id="form">
+                <div class="form__group">
+                    <input type="name" placeholder="Username" id="name" class="form__input" required>
+                    <label for="name" class="form__label">Username</label>
+                </div>
+                <div class="form__group">
+                    <input type="password" placeholder="Password" id="password" class="form__input" required>
+                    <label for="password" class="form__label">Password</label>
+                </div>
+                <div class="form__group u-center-text">
+                    <button class="btn btn--grey-dark" href="/" id="loginButton">Accedi &rarr;</button>
+                </div>
+            </form>
+            <div class="login-registration__other u-center-text u-margin-top-small" id="other">
+                <p class="paragrah login-registration__paragrah">Se non hai un account puoi <a href="/registration/" class="login-registration__link--grey">Registrarti</a></p>
+                <p class="paragrah login-registration__paragrah">Oppure ritorna all'<a href="/" class="login-registration__link--grey">Homepage</a></p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+    <script type="module" src="{% static 'js/login.js' %}"></script>
+{% endblock js %}

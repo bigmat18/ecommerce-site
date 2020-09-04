@@ -1,0 +1,215 @@
+.navbar {
+    background-color: $color-grey-light-2;
+    margin: auto;
+    width: 90%;
+    height: 10rem;
+    margin-top: 3rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    color: $color-grey-dark-3;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .8s;
+
+    @include respond(phone) {
+        height: 0;
+        width: 100%; 
+        margin: 0;
+        position: fixed; 
+        z-index: 1999;
+        transform: translateY(-5rem);
+    }
+
+    &__logo-box {
+        height: auto;
+        padding-left: 2rem;
+
+        @include respond(phone) {
+            display: none;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+
+        &--main {
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+
+            @include respond(tab-port){
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+        }
+
+        &--sub {
+            width: 10rem;
+            font-size: 1.7rem;
+            font-weight: 500;
+            line-height: 2.5rem;
+            padding-left: 1rem;
+
+            @include respond(tab-port){
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-right: 2rem;
+
+        @include respond(phone) {
+            display: none;
+        }
+    }
+
+    &__item {
+        font-size: 2.5rem;
+
+        @include respond(tab-port){
+            font-size: 1.5rem;
+        }
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            color: $color-grey-dark-3;
+            padding: 1rem 3rem;
+            letter-spacing: 0.3rem;
+            
+            @include respond(tab-port){
+                padding: 1rem 1rem;
+                letter-spacing: 0.1rem;
+
+            }
+
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 230%;
+            transition: all .4s;
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-grey-dark-3;
+            transform: translateX(1rem);
+        }
+    }
+
+    &__search {
+        width: auto;
+        height: auto;
+    }
+}
+
+.navigation {
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        display: none;
+        background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 2000;
+        box-shadow: 0 1rem 3rem rgba($color-black, $alpha: .1);
+        text-align: center;
+        cursor: pointer;
+
+        @include respond(phone) {
+            top: 3rem;
+            right: 3rem;
+            display: block;
+        }
+    }
+
+    &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before {top: -.8rem;}
+        &::after {top: .8rem;}
+    }
+
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+
+    &__checkbox:checked ~ .navbar {
+
+        @include respond(phone) {
+            height: 70rem;
+
+            .navbar{
+
+                &__logo {
+                    display: block;
+                }
+
+                &__list {
+                    display: block;
+                    margin: auto;
+                    width: 100%;
+                    text-align: center;
+                }
+    
+                &__item {
+                    font-size: 3.5rem;
+                    letter-spacing: 1rem;
+                }
+            }
+        }
+    }
+}
