@@ -1,16 +1,29 @@
 .item {
     height: 35rem;
-    margin-top: 5rem;
+    margin-top: 8rem;
     margin-bottom: 8rem;
     background-color: $color-grey-light-1;
-    position: relative;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    @include respond(tab-port){
+        height: 25rem;
+    }
+
+    @include respond(phone){
+        flex-direction: column;
+        height: 75rem;
+    }
 
     &__picture {
         display: inline-block;
         background-size: cover;
         height: 100%;
-        width: 25%;
+        width: 35%;
         background-blend-mode: screen;
         border-top-right-radius: 3px;
         border-top-left-radius: 3px;
@@ -18,23 +31,65 @@
         img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+        }
+
+        @include respond(phone){
+            height: 40%;
+            width: 100%;
         }
     }
 
     &__content {
         display: inline-block;
-        margin-left: 6rem;
-        width: 40%;
-        @include verticalCenter;
+        width: 35%;
+
+        @include respond(tab-port){
+            width: 30%;
+        }
+
+        @include respond(phone){
+            height: 40%;
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__title {
-        font-size: 4rem;
+        font-size: 3rem;
+
+        @include respond(tab-land){
+            font-size: 2.5rem;
+        }
+
+        @include respond(tab-port){
+            font-size: 2rem;        
+        }
+
+        @include respond(phone){
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
     }
 
     &__vote {
         margin-top: 2rem;
         margin-bottom: 2rem;
+
+        img {
+            width: 5%;
+            height: 5%;
+        }
+
+        @include respond(tab-port){
+            margin-top: 0rem;
+            margin-bottom: 0rem;      
+        }
+
+        @include respond(phone){
+            margin-top: 1rem;
+            margin-bottom: 1rem;      
+        }
     }
 
     &__star {
@@ -47,40 +102,82 @@
     }
 
     &__description {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         width: 100%;
+        height: 90%;
+
+        @include respond(tab-port){
+            font-size: 1.2rem;        
+        }
+
+        @include respond(phone){
+            width: 90%;
+            margin: auto;
+            font-size: 1.2rem;        
+
+        }
     }
 
     &__price-detail {
-        display: inline-block;
-        width: 15%;
-        text-align: center;
-        @include verticalCenter;
-        right: 25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include respond(phone){
+            flex-direction: row;
+            justify-content: space-between;
+            width: 50%;
+            margin-top: 1rem;
+        }
     }
 
     &__price {
         display: inline-block;
-        width: 50%;
+        text-align: center;
 
         &--label {
-            font-size: 3rem;
+            font-size: 2rem;
+
+            @include respond(tab-land){
+                font-size: 1.5rem;
+            }
         }
 
         &--price {
-            font-size: 5rem;
-        }
+            font-size: 4rem;
 
-        &:not(:first-child) {
-            margin-top: 3rem;
+            @include respond(tab-land){
+                font-size: 3rem;
+            }
+
+            @include respond(tab-port){
+                font-size: 2.5rem;
+            }
         }
     }
 
     &__action {
-        display: inline-block;
-        text-align: center;
-        @include verticalCenter;
-        right: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include respond(tab-land){
+            margin-right: 0rem;
+        }
+
+        @include respond(tab-port){
+            margin-right: 1rem;
+        }
+
+        @include respond(phone){
+            flex-direction: row;
+            justify-content: space-around;
+            width: 50%;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+        }
 
         &--button {
             height: 4rem;
@@ -92,6 +189,16 @@
                 height: 100%;
                 width: 100%;
             }
+
+            @include respond(tab-port){
+                height: 3rem;
+                width: 3rem;
+            }
+
+            @include respond(phone){
+                height: 2rem;
+                width: 2rem;
+            }
         }
 
         &--label {
@@ -99,6 +206,14 @@
             font-weight: 700;
             color: $color-black;
             text-decoration: none;
+
+            @include respond(tab-port){
+                font-size: 1.7rem;
+            }
+
+            @include respond(phone){
+                font-size: 1.4rem;
+            }
         }
 
     }
@@ -113,8 +228,24 @@
             box-shadow: 0 1rem 2rem rgba($color-black, .2);
         }
 
-        &:not(:first-child) {
-            margin-top: 2rem;
+        @include respond(tab-port){
+            padding: 1.5rem 2rem;
+        }
+
+        @include respond(phone){
+            padding: 1rem 1rem;
         }
     }
 }
+
+// @include respond(tab-land){
+
+// }
+
+// @include respond(tab-port){
+
+// }
+
+// @include respond(phone){
+
+// }

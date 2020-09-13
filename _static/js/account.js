@@ -49,23 +49,31 @@ getUser().then(data => {
     if(data.is_superuser){
         const loadItem = document.getElementById('loadItem')
         const newItem = document.getElementById('newItem')
+        let loadItemActive = true
 
         getItems(null).then(data => {
             itemUI.addItemList(data)
+
+            if(data.next == null){
+                loadItem.remove()
+                loadItemActive = false
+            }
         })
     
-        let next = 2
-        loadItem.addEventListener('click', function(e) {
-            getItems(JSON.stringify(next)).then(data => {
-                if (next!=null){
-                    itemUI.addItemList(data)
-                    if (data.next == null){
-                        loadItem.remove()
+        if (loadItemActive){
+            let next = 2
+            loadItem.addEventListener('click', function(e) {
+                getItems(JSON.stringify(next)).then(data => {
+                    if (next!=null){
+                        itemUI.addItemList(data)
+                        if (data.next == null){
+                            loadItem.remove()
+                        }
                     }
-                }
+                })
+                next++
             })
-            next++
-        })
+        }
 
         newItem.addEventListener('click', function(e) {
             const formTitle = document.getElementById('formTitle')
@@ -75,6 +83,7 @@ getUser().then(data => {
             const formImage = document.getElementById('formImage')
             const imagePicker = document.getElementById('imagePicker')
             formImage.innerHTML = `Seleziona immagine`
+            formDiscount.value = "0"
 
             document.getElementById('popupClose').addEventListener('click', (e)=>{
                 formTitle.value = ""
@@ -134,6 +143,18 @@ getUser().then(data => {
                             }
                             e.preventDefault()
                         }
+                }else{
+                    const form = document.getElementById('form')
+                    if(form.querySelector("#error")){
+                        form.querySelector("#error").innerHTML = "Inserisci tutti i dati richiesti"
+                    }else {
+                        const newError = document.createElement('p')
+                        newError.classList.add("form__error")
+                        newError.id = "error"
+                        newError.innerHTML = "Inserisci tutti i dati richiesti"
+                        form.appendChild(newError)
+                    }
+                    e.preventDefault()
                 }
             })
         })

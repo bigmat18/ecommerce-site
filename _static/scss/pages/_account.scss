@@ -4,26 +4,33 @@
     padding: 5rem 3rem;
     margin-top: 6rem;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
-
-    .row {margin: 0;}
 }
 
 .item-maneger-section {
     margin: auto;
     margin-top: 10rem;
-    width: 90%;
+    width: 80%;
 }
 
 .item-maneger {
 
     &__item-list {
         margin-top: 4rem;
+
+        @include respond(phone){
+            width: 70%;
+            margin: auto;
+        }
     }
 
     &__title {
 
         .heading-secondary {
             font-size: 4rem;
+
+            @include respond(phone){
+                width: 100%;
+            }
         }
 
         .paragraph {
@@ -31,6 +38,10 @@
             margin: auto;
             margin-top: 2rem;
             font-size: 2.5rem;
+
+            @include respond(phone){
+                width: 100%;
+            }
         }
 
         hr {
@@ -39,6 +50,19 @@
             margin-top: 2rem;
             margin-bottom: 3rem;
             color: $color-grey-dark-2;
+        }
+    }
+
+    &__buttons{
+        width: 75%;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+
+        @include respond(phone){
+            flex-direction: column;
+            align-items: center;
+            height: 20rem;
         }
     }
 }

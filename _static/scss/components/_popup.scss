@@ -53,7 +53,7 @@
 
     &__content {
         @include absCenter;
-        width: 40%;
+        width: 60%;
         background-color: $color-white;
         box-shadow: 0 2rem 4rem rgba($color-black, .2);
         border-radius: 3px;
@@ -66,6 +66,15 @@
 
         @include respond(tab-land){
             padding-bottom: 3rem;
+            width: 70%;
+        }
+
+        @include respond(tab-port){
+            width: 80%;
+        }
+
+        @include respond(phone){
+            width: 100%;
         }
         
     }

@@ -27,7 +27,7 @@
             </div>
 
             <form action="#" class="search">
-                <input type="text" class="search__input" placeholder="Cerca quello che preferisci">
+                <input type="text" class="search__input" placeholder="Cerca arredamento">
                 <button class="search__button">
                     <img src="{% static 'img/icon/search.png' %}" alt="" class="search__icon">
                 </button>
@@ -52,9 +52,52 @@
         {% block content %}
         {% endblock content %}
     </main>
-    <footer>
-
-    </footer>
+        <footer class="footer">
+            <div class="footer__logo-box">
+                <div class="footer__logo">
+                    <span class="footer__logo--main">PerfectHome</span>
+                    <span class="footer__logo--sub">Mobili ed Arredamenti</span>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-1-of-4">
+                        <div class="footer__navigation">
+                            <ul class="footer__list">
+                                <li class="footer__item"><a href="#" class="footer__link">Homepage</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Account</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Login</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Registrati</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-of-4">
+                        <div class="footer__navigation">
+                            <ul class="footer__list">
+                                <li class="footer__item"><a href="#" class="footer__link">Visa</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">PostePay</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Mastercard</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Visa Electron</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-of-4">
+                        <div class="footer__navigation">
+                            <ul class="footer__list">
+                                <li class="footer__item"><a href="#" class="footer__link">Problemi di pagamento</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Rimborsi</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Asistensa</a></li>
+                                <li class="footer__item"><a href="#" class="footer__link">Contatto per resi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-of-4">
+                        <p class="footer__copyright">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga recusandae, dignissimos corrupti, perspiciatis repellendus eum velit quia molestias in neque veritatis. Veritatis sequi dicta blanditiis dolore dolor voluptates neque nobis!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum harum soluta adipisci!
+                        </p>
+                    </div>
+                </div>
+        </footer>
 
     {% block js %}
     {% endblock js %}

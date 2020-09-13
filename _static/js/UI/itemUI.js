@@ -51,19 +51,18 @@ export default class ItemUI {
                     <div class="item__button" id="update">
                         <a class="item__action--label" href="#popup">Modifica</a>
                         <div class="item__action--button">
-                            <a href="#popup"><img src="${DJANGO_URL_PENCIL}" alt="" class="item__img"></a>
+                            <a href="#popup"><img src="${DJANGO_URL_PENCIL}" alt="CHANGE" class="item__img"></a>
                         </div>
                     </div>
                     <div class="item__button" id="delete">
                         <p class="item__action--label">Elimina</p>
                         <div class="item__action--button">
-                            <img src="${DJANGO_URL_CROSS }" alt="" class="item__img">
+                            <img src="${DJANGO_URL_CROSS}" alt="DELETE" class="item__img">
                         </div>
                     </div>
                 </div>`
            newItemFull = newItem
          })
-         console.log
          return newItemFull
     }
 

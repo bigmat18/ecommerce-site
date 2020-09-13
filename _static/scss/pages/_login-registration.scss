@@ -18,6 +18,9 @@
     @include respond(tab-port) {
         padding: 5rem 3rem;
     }
+    @include respond(phone) {
+        width: 90%;
+    }
 }
 
 .login-registration {

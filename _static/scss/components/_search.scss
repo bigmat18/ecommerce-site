@@ -10,6 +10,14 @@
         display: none;
     }
 
+    @include respond(tab-land){
+        width: 27%;    
+    }
+
+    @include respond(tab-port){
+        width: 30%;    
+    }
+
     &__input {
         width: 90%;
         height: 100%;
@@ -36,6 +44,22 @@
                 opacity: 0;
             }
         }
+
+        @include respond(tab-land){
+            font-size: 1.5rem; 
+            padding-left: 2rem;   
+       
+        }
+    
+        @include respond(tab-port){
+            font-size: 1.2rem; 
+            padding-left: 1.5rem; 
+        }
+
+        @include respond(phone){
+            font-size: 2rem; 
+            padding-left: 2.5rem; 
+        }
     }
 
     &__button {
@@ -47,10 +71,34 @@
             outline: none;
         }
 
+
+        @include respond(tab-port){
+            transform: translateX(-2.5rem);
+        }
+
+        @include respond(phone){
+            transform: translateX(-4rem);
+        }
+
     }
 
     &__icon {
         height: 2rem;
         width: 2rem;
+
+        @include respond(tab-land){
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        @include respond(tab-port){
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        @include respond(phone){
+            height: 2rem;
+            width: 2rem;
+        }
     }
 }

@@ -47,11 +47,12 @@
         img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
     }
 
     &__heading {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
         font-weight: 300;
         text-transform: uppercase;
         text-align: center;
@@ -66,15 +67,33 @@
     &__vote {
         position: absolute;
         display: inline-block;
-        bottom: 4rem;
+        bottom: 2rem;
         left: 50%;
         transform: translate(-50%, 0);
         width: 75%;
+
+        @include respond(phone){
+            transform: translate(-50%, 1rem);
+        }
     }
 
     &__star {
         display: inline;
         padding: 0 1rem;
+
+        @include respond(phone){
+            padding: 0 .3rem;
+        }
+    }
+
+    &__img {
+        width: 10%;
+        height: 10%;
+
+        @include respond(phone){
+            width: 5%;
+            height: 5%;
+        }
     }
 
 

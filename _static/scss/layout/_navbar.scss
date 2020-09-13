@@ -8,7 +8,7 @@
     color: $color-grey-dark-3;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     transition: all .8s;
 
@@ -19,11 +19,11 @@
         position: fixed; 
         z-index: 1999;
         transform: translateY(-5rem);
+        display: block;
     }
 
     &__logo-box {
         height: auto;
-        padding-left: 2rem;
 
         @include respond(phone) {
             display: none;
@@ -35,26 +35,36 @@
         align-items: center;
 
         &--main {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 400;
             letter-spacing: 4px;
 
+            @include respond(tab-land){
+                font-size: 2.7rem;
+                letter-spacing: 3px;
+            }
+
             @include respond(tab-port){
-                font-size: 2.5rem;
+                font-size: 2.2rem;
                 letter-spacing: 3px;
             }
         }
 
         &--sub {
             width: 10rem;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 500;
             line-height: 2.5rem;
             padding-left: 1rem;
 
+            @include respond(tab-land){
+                font-size: 1.1rem;
+                line-height: 1.5rem;            
+            }
+
             @include respond(tab-port){
-                font-size: 1rem;
-                line-height: 1.5rem;
+                font-size: 0.8rem;
+                line-height: 1.2rem;
             }
         }
     }
@@ -63,7 +73,6 @@
         list-style: none;
         display: flex;
         align-items: center;
-        margin-right: 2rem;
 
         @include respond(phone) {
             display: none;
@@ -71,10 +80,14 @@
     }
 
     &__item {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+
+        @include respond(tab-land){
+            font-size: 1.7rem;        
+        }
 
         @include respond(tab-port){
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
     }
 
@@ -85,8 +98,12 @@
             text-transform: uppercase;
             display: inline-block;
             color: $color-grey-dark-3;
-            padding: 1rem 3rem;
+            padding: 1rem 2rem;
             letter-spacing: 0.3rem;
+
+            @include respond(tab-land){
+                padding: 1rem 1rem;
+            }
             
             @include respond(tab-port){
                 padding: 1rem 1rem;
@@ -107,10 +124,6 @@
         }
     }
 
-    &__search {
-        width: auto;
-        height: auto;
-    }
 }
 
 .navigation {
@@ -190,24 +203,47 @@
     &__checkbox:checked ~ .navbar {
 
         @include respond(phone) {
-            height: 70rem;
+            height: 45rem;
 
             .navbar{
-
-                &__logo {
-                    display: block;
-                }
 
                 &__list {
                     display: block;
                     margin: auto;
                     width: 100%;
                     text-align: center;
+                    margin-top: 2rem;
+
                 }
     
                 &__item {
-                    font-size: 3.5rem;
+                    font-size: 2.5rem;
                     letter-spacing: 1rem;
+                    width: 50%;
+                    margin: auto;
+
+                    &:not(:last-child){
+                        border-bottom: 1px $color-grey-dark-3 solid;
+                    }
+                }
+            }
+
+            .search {
+                display: block;
+                width: 80%;
+                height: 15%;
+                margin: auto;
+                margin-top: 11rem;
+                margin-bottom: 2rem;
+                padding-left: 0;
+
+                &__input {
+                    width: 90%;
+                    transform: translateX(2rem);
+                }
+
+                &__button {
+                    transform: translateX(-3rem);
                 }
             }
         }

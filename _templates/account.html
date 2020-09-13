@@ -4,58 +4,45 @@
 {% block content %}
     {% if request.user.is_authenticated %}
         <section class="account-section">
-            <div class="row">
-                <div class="col-1-of-2">
-                    <fiugure class="account__picture">
-                        <img src="{% static 'img/profileVoid.png' %}" alt="yout image" class="account__image" id="avatar">
-                        <!-- <figcaption class="account__caption">Cambia foto</figcaption> -->
-                    </fiugure>
+            <div class="account">
+                <div class="account__picture">
+                    <img src="{% static 'img/profileVoid.png' %}" alt="yout image" class="account__image" id="avatar">
                 </div>
-                <div class="col-1-of-2">
-                    <div class="account__info">
-                        <div class="account__title">
-                            <h2 class="heading-secondary" id="title">
-                                Benventuo Matteo Giuntoni
-                            </h2>
+                <div class="account__info">
+                    <div class="account__title">
+                        <h2 class="heading-secondary" id="title">
+                            Benventuo Matteo Giuntoni
+                        </h2>
+                    </div>
+                    <div class="account__content">
+                        <div class="account__content--group1">
+                            <div class="account__data">
+                                <p class="account__data--label">Username</p>
+                                <p class="account__data--content" id="username"></p>
+                            </div>
+                            <div class="account__data">
+                                <p class="account__data--label">Email</p>
+                                <p class="account__data--content" id="email"></p>
+                            </div>
+                            <div class="account__data">
+                                <p class="account__data--label">Carrello</p>
+                                <p class="account__data--content" id="cartItem"></p>
+                            </div>
                         </div>
-                        <div class="account__content">
-                            <div class="account__content--group1">
-                                <div class="account__data">
-                                    <p class="account__data--label">Username</p>
-                                    <p class="account__data--content" id="username">Admin123456</p>
-                                </div>
-                                <div class="account__data">
-                                    <p class="account__data--label">Email</p>
-                                    <p class="account__data--content" id="email">admin@admin.com</p>
-                                </div>
-                                <div class="account__data">
-                                    <p class="account__data--label">Carrello</p>
-                                    <p class="account__data--content" id="cartItem">10 oggetti</p>
-                                </div>
-                            </div>
 
-                            <div class="account__content--group2">
-                                <div class="account__data">
-                                    <p class="account__data--label">Nome</p>
-                                    <p class="account__data--content" id="firstName">Matteo</p>
-                                </div>
-                                <div class="account__data">
-                                    <p class="account__data--label">Cognome</p>
-                                    <p class="account__data--content" id="secondName">Giuntoni</p>
-                                </div>
-                                <div class="account__data">
-                                    <p class="account__data--label">Data Join</p>
-                                    <p class="account__data--content" id="dataJoined">10/11/2019</p>
-                                </div>
+                        <div class="account__content--group2">
+                            <div class="account__data">
+                                <p class="account__data--label">Nome</p>
+                                <p class="account__data--content" id="firstName"></p>
                             </div>
-                            <!-- <div class="account__button-group">
-                                <div class="account__button" id="loadItem">
-                                    <a href="#" class="btn btn--grey">Modifica Account</a>
-                                </div>
-                                <div class="account__button" id="loadItem">
-                                    <a href="#" class="btn btn--grey">Cambia Account</a>
-                                </div>
-                            </div> -->
+                            <div class="account__data">
+                                <p class="account__data--label">Cognome</p>
+                                <p class="account__data--content" id="secondName"></p>
+                            </div>
+                            <div class="account__data">
+                                <p class="account__data--label">Data Join</p>
+                                <p class="account__data--content" id="dataJoined"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,9 +61,9 @@
             </div>
             <div class="item-maneger__item-list" id="article-list">
             </div>
-            <div class="u-center-text u-margin-top-medium u-margin-bottom-medium">
+            <div class="item-maneger__buttons u-margin-top-medium u-margin-bottom-medium">
                 <button id="loadItem" class="btn btn--grey btn--animated">Carica altri prodotti</button>
-                <a id="newItem" href="#popup" class="btn btn--grey btn--animated u-margin-left-medium">Crea un nuovo oggetto</a>
+                <a id="newItem" href="#popup" class="btn btn--grey btn--animated">Crea un nuovo oggetto</a>
             </div>
         </section>
 
@@ -105,7 +92,7 @@
                     </div>
     
                     <div class="form__group">
-                        <input type="number" placeholder="Sconto (non oggligatorio)" id="formDiscount" class="form__input grey">
+                        <input type="number" placeholder="Sconto (se non voluto mantenere lo 0)" id="formDiscount" class="form__input grey">
                         <label for="formDiscount" class="form__label">Sconto</label>
                     </div>
 
@@ -123,7 +110,7 @@
         </div>
         {% endif %}
     {% else %}
-        <div class="u-center-text u-margin-top-big">
+        <div class="u-center-text u-margin-top-big u-margin-bottom-XXXbig">
             <h2 class="heading-secondary">Accedi per visualizzare l'account</h2>
         </div>
     {% endif %}
